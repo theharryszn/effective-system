@@ -16,7 +16,7 @@ public class Main extends Frame {
     };
 
     public String[] headings = {"ID", "NAME", "COURSE"};
-    public int selectedColumn = -1;
+    public int selectedRow = -1;
     public int temp = -1;
     public JTable table;
     public  ListSelectionModel listSelectionModel;
@@ -36,15 +36,17 @@ public class Main extends Frame {
 
         listSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listSelectionModel.addListSelectionListener((e) -> {
-            if(selectedColumn == table.getSelectedRow() || table.getSelectedRow() == temp){
-
-            }else if(selectedColumn != -1) {
+            if(selectedRow == table.getSelectedRow() || table.getSelectedRow() == temp){
+                // do nothing since a and b cant be the same
+            }else if(selectedRow != -1) {
+                // Picking B and switching
                 // runs when a row has been prev' selected
-                switchRows(selectedColumn, table.getSelectedRow());
+                switchRows(selectedRow, table.getSelectedRow());
                 temp = table.getSelectedRow();
-                selectedColumn = -1;
+                selectedRow = -1;
             }else {
-                selectedColumn = table.getSelectedRow();
+                // Picking a
+                selectedRow = table.getSelectedRow();
             }
         });
 
