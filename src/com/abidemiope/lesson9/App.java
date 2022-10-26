@@ -93,7 +93,7 @@ public class App {
                         }else {
                             fNum *= Double.parseDouble(screen.getText());
                         }
-                        screen.setText("0");
+                         screen.setText("0");
                         operator = "*";
                         break;
                     case "C":
